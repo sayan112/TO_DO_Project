@@ -17,7 +17,6 @@ filterOption.addEventListener("click",filterTodo);
 
 
 
-
 function addTodo(event) {
   // Prevent form from submitting 
   event.preventDefault();
@@ -93,6 +92,7 @@ function deletecheck(e){
 
     //    Animation
        todo.classList.add("fall");
+       removeLocalTodos(todo);
     //    todo.remove();       this is not the right way to remove , bcz we are just turn the opacity 0 , but still elem is there
     // so , we create a function
 todo.addEventListener('transitionend',function()
@@ -143,7 +143,7 @@ function filterTodo(e) {
 function saveLocalTodos(todo)
 {
   // check - Hey do i already have any todo in there :)   ?
- 
+//  console.log("sexy");
    let todos;
     if(localStorage.getItem("todos")== null)
     {
@@ -159,7 +159,6 @@ localStorage.setItem("todos",JSON.stringify(todos));
 
 
 }
-
 
 
 //  after refreshing it called :)
@@ -226,23 +225,26 @@ todoList.appendChild(todoDiv);
 
 
 
-//   delete local storage todo
-function removeLocalstorage(todo) {
+ 
+
+
+function removeLocalTodos(todo) {
+  console.log("sex");
   let todos;
-  if(localStorage.getItem("todos")== null)
-  {
-     todos=[];
+  if (localStorage.getItem("todos") === null) {
+    todos = [];
+  } else {
+    todos = JSON.parse(localStorage.getItem("todos"));
   }
-   else{
-      todos= JSON.parse(localStorage.getItem("todos"));
-
-   }
-   const todoIndex = todo.children[0].innerText;
-   todo.splice(todos.indexof(todoIndex,1));
-   localStorage.setItem("todos",JSON.stringify(todos));
-
-
+  const todoIndex = todo.children[0].innerText;
+  todos.splice(todos.indexOf(todoIndex), 1);
+  localStorage.setItem("todos", JSON.stringify(todos));
 }
+
+
+
+
+
 
 
 
