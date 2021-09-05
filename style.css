@@ -34,7 +34,7 @@ form button {
     color: #fabbaa;
     background: white;
     cursor: pointer;
-    transition: all 2s ease;
+    transition: all 1s ease;
     
 }
  form button:hover{
@@ -79,6 +79,36 @@ form button {
  .complete-btn{
      background-color: rgb(68, 226, 68);
  }
+ select.filter-todo {
+    font-size: 0.9rem;
+}
+ /* border-radius */
+ button.complete-btn , button.trash-btn{
+     border-radius: 10px;
+ }
+ .todo{
+    border-radius: 10px;
+ }
+ input.todo-input{
+      border-bottom-left-radius:10px ;
+      border-top-left-radius: 10px;
+ }
+
+ button.todo-button{
+     border-top-right-radius:10px ;
+     border-bottom-right-radius: 10px;
+
+ }
+ select.filter-todo {
+    border-radius: 10px;
+}
+::after {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 17px;
+}
+
+
+ /*  */
 .todo-item {
     padding: 0rem 0.5rem ;
 }
